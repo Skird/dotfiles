@@ -97,3 +97,5 @@ batdiff() {
 }
 
 alias vm="ssh devdocker"
+
+test -e "$HOME/.secrets.sh" && source "$HOME/.secrets.sh"
