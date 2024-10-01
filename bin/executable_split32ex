@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+import sys
+
+s = input() if len(sys.argv) <= 1 else sys.argv[1]
+if s.startswith('0x'):
+  s = s[2:]
+b = bytes.fromhex(s)
+for i in range(0, len(b), 32):
+  x = int.from_bytes(b[i:i+32], byteorder='big')
+  if (x & (1 << 255)) != 0:
+    x -= 2 ** 256
+  print(b[i:i+32].hex(), x)
