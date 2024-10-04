@@ -119,16 +119,4 @@ mpull() {( set -e
   git checkout $BRANCH
 )}
 
-# Before every command, check if there is a new active ssh-agent
-# from vscode (this is needed to handle reloading the vscode window)
-vscode_fix_ssh_auth_sock() {
-    [ -e "$SSH_AUTH_SOCK" ] && return
-    VSCODE_AUTH_SOCK=$(ls -t /run/user/11076/vscode-ssh-auth-sock* 2> /dev/null | head -n1)
-    ln -f -s $(ls -t /tmp/ssh-*/agent.* | head -n1) $VSCODE_AUTH_SOCK
-    [ -e "$VSCODE_AUTH_SOCK" ] && export SSH_AUTH_SOCK=$VSCODE_AUTH_SOCK
-}
-if [ "$TERM_PROGRAM" = "vscode" ]; then
-    trap vscode_fix_ssh_auth_sock DEBUG
-fi
-
 test -e "$HOME/.secrets.sh" && source "$HOME/.secrets.sh"
