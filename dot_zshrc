@@ -120,3 +120,4 @@ mpull() {( set -e
 )}
 
 test -e "$HOME/.secrets.sh" && source "$HOME/.secrets.sh"
+export TWIX_PRECOMMIT_CHECKS_AUTO_FIX=1
