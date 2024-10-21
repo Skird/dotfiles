@@ -109,7 +109,8 @@ ulimit -n 262144
 HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=$HISTSIZE
-export HIST_IGNORE_ALL_DUPS=1
+export HIST_FIND_NO_DUPS=1
+
 
 alias jurl="curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'"
 
