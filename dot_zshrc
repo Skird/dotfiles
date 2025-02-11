@@ -148,5 +148,11 @@ mpull() {( set -e
   git checkout $BRANCH
 )}
 
+build() {(
+  cd $(twix-python -c 'import twix; print(twix.root_path)')
+  ./scripts/build.py "$@"
+  cd -
+)}
+
 test -e "$HOME/.secrets.sh" && source "$HOME/.secrets.sh"
 export TWIX_PRECOMMIT_CHECKS_AUTO_FIX=1
