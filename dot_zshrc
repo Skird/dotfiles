@@ -154,5 +154,9 @@ build() {(
   cd -
 )}
 
+if [[ "$ARGV0" =~ ".*cursor.*-x86_64.AppImage" ]]; then
+  unset ARGV0
+fi
+
 test -e "$HOME/.secrets.sh" && source "$HOME/.secrets.sh"
 export TWIX_PRECOMMIT_CHECKS_AUTO_FIX=1
