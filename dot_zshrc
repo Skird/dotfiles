@@ -76,6 +76,8 @@ alias python="ipython3"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # autoload -U colors; colors
 
+zstyle ':completion:*' accept-exact-dirs true
+
 # source "${HOME}"/.ktx
 alias k="kubectl"
 #alias ktx="kubectx"
