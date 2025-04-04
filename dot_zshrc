@@ -150,11 +150,7 @@ mpull() {( set -e
   git checkout $BRANCH
 )}
 
-build() {(
-  cd $(twix-python -c 'import twix; print(twix.root_path)')
-  ./scripts/build.py "$@"
-  cd -
-)}
+alias build="twix-python -m twix.scripts.build"
 
 if [[ "$ARGV0" =~ ".*cursor.*-x86_64.AppImage" ]]; then
   unset ARGV0
