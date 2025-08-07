@@ -78,10 +78,7 @@ alias python="ipython3"
 
 zstyle ':completion:*' accept-exact-dirs true
 
-# source "${HOME}"/.ktx
 alias k="kubectl"
-#alias ktx="kubectx"
-alias kns="kubens"
 
 export GOPATH=$HOME/go
 export PATH="$PATH:$(go env GOPATH)/bin"
