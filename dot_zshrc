@@ -148,6 +148,7 @@ mpull() {( set -e
 )}
 
 alias build="twix-python -m twix.scripts.build"
+which pinus && source <(pinus completion zsh)
 
 if [[ "$ARGV0" =~ ".*cursor.*-x86_64.AppImage" ]]; then
   unset ARGV0
