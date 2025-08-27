@@ -85,6 +85,7 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 alias xclipi="xclip -selection clipboard -i"
 
 export CARGO_NET_GIT_FETCH_WITH_CLI=true
