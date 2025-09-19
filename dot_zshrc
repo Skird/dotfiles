@@ -78,6 +78,10 @@ alias python="ipython3"
 
 zstyle ':completion:*' accept-exact-dirs true
 
+bindkey -e
+bindkey '\e[1;3C' forward-word
+bindkey '\e[1;3D' backward-word
+
 alias k="kubectl"
 
 export GOPATH=$HOME/go
