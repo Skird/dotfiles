@@ -152,6 +152,22 @@ mpull() {( set -e
   git checkout $BRANCH
 )}
 
+br() {
+  if [ -z "$1" ]; then
+    echo "Usage: br <branch-name>"
+    return 1
+  fi
+
+  local branch="$1"
+  if git show-ref --verify --quiet "refs/heads/$branch"; then
+    git checkout "$branch"
+  elif git ls-remote --exit-code --heads origin "$branch" &>/dev/null; then
+    git checkout -b "$branch" "origin/$branch"
+  else
+    git checkout -b "$branch"
+  fi
+}
+
 alias build="twix-python -m twix.scripts.build"
 which pinus >/dev/null 2>/dev/null && source <(pinus completion zsh)
 
