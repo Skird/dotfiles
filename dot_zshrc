@@ -145,12 +145,13 @@ fzf-history-widget() {
 
 alias jurl="curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json'"
 
-mpull() {( set -e
-  BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-  git checkout master
-  git pull
-  git checkout $BRANCH
-)}
+mmerge() {
+  set -euo pipefail
+  local base=${1:-master}
+  local remote=${2:-origin}
+  git fetch "$remote" "$base"
+  git merge --no-edit "$remote/$base"
+}
 
 br() {
   if [ -z "$1" ]; then
